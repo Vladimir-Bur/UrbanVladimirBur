@@ -1,0 +1,15 @@
+my_dict = {'Vladimir':1969, 'Timofey':2000}
+print(my_dict)
+print(my_dict['Vladimir'])
+print(my_dict.get('Guzyal','нет такого имени'))
+my_dict.update({'Guzyal':1973, 'Ivan':1947})
+print(my_dict)
+a = my_dict.pop('Ivan')
+print(a)
+print(my_dict)
+my_set = {1, 9, 6, 9, 20.00, 1, 9, 7, 3, 'Ivan', 73}
+print(my_set)
+my_set.update({4, 'Vladimir'})
+print(my_set)
+my_set.remove(3)
+print(my_set)
