@@ -4,7 +4,7 @@ def single_root_words(root_word, *other_words):
     other_words_2 = list(other_words)
     for i in range(len(other_words)):
         other_words_2[i] = other_words_2[i].lower()
-        if root_word_2 in other_words[i]:
+        if root_word_2 in other_words_2[i]:
             same_words.append(other_words[i])
         elif other_words_2[i] in root_word_2:
             same_words.append(other_words[i])
