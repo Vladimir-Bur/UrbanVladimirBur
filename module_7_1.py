@@ -1,38 +1,34 @@
 class Product:
-    name = str
-    weight = float
-    category = str
     def __init__(self, name : str, weight : float, category : str):
         self.name = name
-        Product.name = self.name
         self.weight = weight
-        Product.weight = self.weight
         self.category = category
-        Product.category = self.category
 
     def __str__(self):
         return f'{self.name}, {self.weight}, {self.category}'
 
 class Shop:
     __file_name = 'products.txt'
-    _products = None
+
+    def __init__(self):
+        self._file = None
 
     def get_products(self):
-        self.__file_name = open(Shop.__file_name, 'r')
-        Shop._products = self.__file_name.read()
-        self.__file_name.close()
-        return f'{Shop._products}'
+        self._file = open(Shop.__file_name, 'r')
+        read_file = self._file.read()
+        self._file.close()
+        return f'{read_file}'
 
     def add(self, *products):
+        products_in_file = self.get_products()
+        self._file = open(Shop.__file_name, 'a')
         for p in products:
-            Shop.get_products(self)
-            if p.name and str(p.weight) not in Shop._products:
-                self.__file_name = open(Shop.__file_name, 'a')
-                Shop._products = self.__file_name.write(f'{p.name}, {p.weight}, {p.category}\n')
-                self.__file_name.close()
+            if str(p) not in products_in_file:
+                self._file.write(f'{str(p)}\n')
             else:
                 print(f'Продукт {p} уже есть в магазине')
-        return Shop._products
+        self._file.close()
+
 
 
 s1 = Shop()
@@ -45,3 +41,4 @@ print(p2) # __str__
 s1.add(p1, p2, p3)
 
 print(s1.get_products())
+
