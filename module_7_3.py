@@ -6,7 +6,7 @@ class WordsFinder:
     def get_all_words(self):
         all_words = {}
         for file_name in self.file_names:
-            with open(file_name) as file:
+            with open(file_name, encoding='utf-8') as file:
                 _words = file.read()
                 for i in [',', '.', '=', '!', '?', ';', ':', ' - ']:
                     if i in _words:
@@ -23,7 +23,7 @@ class WordsFinder:
         self.word = word
         find_word = {}
         for file_name in self.file_names:
-            with open(file_name) as file:
+            with open(file_name, encoding='utf-8') as file:
                 _words = file.read()
                 for i in [',', '.', '=', '!', '?', ';', ':', ' - ']:
                     if i in _words:
@@ -42,7 +42,7 @@ class WordsFinder:
         self.word = word
         count_word = {}
         for file_name in self.file_names:
-            with open(file_name) as file:
+            with open(file_name, encoding='utf-8') as file:
                 _words = file.read()
                 for i in [',', '.', '=', '!', '?', ';', ':', ' - ']:
                     if i in _words:
